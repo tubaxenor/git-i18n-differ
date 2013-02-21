@@ -1,4 +1,4 @@
-require_relative '../../test_helper'
+require 'test_helper'
 describe GitI18nDiffer do
   it "must be defined" do
     GitI18nDiffer::VERSION.wont_be_nil

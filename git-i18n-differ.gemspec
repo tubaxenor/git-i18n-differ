@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{a git i18n differ}
   gem.summary       = %q{}
   gem.homepage      = "https://github.com/tubaxenor/git-i18n-differ.git"
-  gem.executables   = ['git-i18n-differ']
+  gem.executables   = ['git_i18n_differ']
   gem.files         = `git ls-files`.split($\)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "git-i18n-differ"
