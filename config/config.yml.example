@@ -1,0 +1,3 @@
+main_lang_file: config/locale/en.yml
+monitor_lang_file:
+  nl:  config/locale/nl.yml
