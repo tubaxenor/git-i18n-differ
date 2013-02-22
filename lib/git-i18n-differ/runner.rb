@@ -5,6 +5,8 @@ module GitI18nDiffer
       def run(args=[])
         if args.length == 0
           @config = File.join(ROOT_DIR, 'config/config.yml.default')
+        elsif args.length == 1
+          @config = args[0]
         else
           @config = args[0]
           oldrev, newrev = args[1], args[2]
@@ -35,7 +37,20 @@ module GitI18nDiffer
           main_file = config['main_lang_file']
           monitor_files = config['monitor_lang_file']
           main_file_diff = Git.get_diff(main_file, oldrev, newrev)
-          Logger.info main_file_diff
+          messages = get_changes(main_file_diff)
+          Logger.info messages
+        end
+
+        def get_changes(diff)
+          message = []
+          start = nil
+          diff.split("\n").each_with_index do |line, i|
+            start = i if line =~ /^@@ /
+            if start && i >= start
+              message << line.strip
+            end
+          end
+          message
         end
     end
   end
