@@ -2,10 +2,5 @@
 ROOT_DIR = File.expand_path(File.dirname(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(ROOT_DIR)
 require "lib/git_i18n_differ"
-if ARGV.length == 0
-  config = File.join(ROOT_DIR, 'config/config.yml.default')
-else
-  config = ARGV[0]
-end
 
-GitI18nDiffer::Runner.run config
+GitI18nDiffer::Runner.run ARGV
